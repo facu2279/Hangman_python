@@ -22,6 +22,26 @@ def print_boneco(v1, v2, v3, v4, v5, v6, v7):
     print("    |   "+v5,v6)
     print("____|____")
 
+# this function prints the man
+def print_boneco_red(v1, v2, v3, v4, v5, v6, v7):
+    print(CRED + "     ____")
+    print("    |    |")
+    print("    |   "+v7+v1+v7)
+    print("    |   "+v2+v4+v3)
+    print("    |    "+v4)
+    print("    |   "+v5,v6)
+    print("____|____" + CEND)
+
+# this function prints the man
+def print_boneco_green(v1, v2, v3, v4, v5, v6, v7):
+    print(CGREEN + "     ____")
+    print("    |    |")
+    print("    |   "+v7+v1+v7)
+    print("    |   "+v2+v4+v3)
+    print("    |    "+v4)
+    print("    |   "+v5,v6)
+    print("____|____" + CEND)
+
 # this function prints score table and name of player
 def print_label(name, vidas):
     if name == "":
@@ -62,10 +82,18 @@ def print_arr(arr):
         print(arr[i] + " ", end="")
     print()
 
+def print_arr_v2(arr):
+    table = "-" * 18
+    print(CRED + table + CEND)
+    for i in range(0, len(arr)):
+        print(" " + arr[i] + " ", end="")
+    print()
+    print(CRED + table + CEND)
+
 # this function prints de message when the player lost the game
 def defeat():
     os.system('clear')
-    print_boneco(v1, v2, v3, v4, v5, v6, v7)
+    print_boneco_red(v1, v2, v3, v4, v5, v6, v7)
     print("\n\n*************************", end=time.sleep(0.6))
     print("*************************", end=time.sleep(0.6))
     print(CRED + "You " + CEND, end=time.sleep(0.6))
@@ -80,7 +108,7 @@ def defeat():
 # this function prints de message when the player won the game
 def victory():
     os.system('clear')
-    print_boneco(v1, v2, v3, v4, v5, v6, v7)
+    print_boneco_green(v1, v2, v3, v4, v5, v6, v7)
     print("\n\n***************************", end=time.sleep(0.6))
     print("***************************", end=time.sleep(0.6))
     print(CGREEN + "Congrats" + CEND, end=time.sleep(0.6))
@@ -144,10 +172,11 @@ while(b != 1):
     print_boneco(v1, v2, v3, v4, v5, v6, v7)
     print_arr(arr)
     if m != 0:
-        print("\n\n WRONG LETTERS")
+        print(CRED + "\n\n WRONG LETTERS" + CEND)
+        print()
         print("  |   |   |")
         print("  V   V   V")
-        print_arr(perdidas)
+        print_arr_v2(perdidas)
     else:
         print("\nIf you need help, type help and enter")
     if e1 == 1:
