@@ -24,7 +24,11 @@ def print_boneco(v1, v2, v3, v4, v5, v6, v7):
 
 # this function prints score table and name of player
 def print_label(name, vidas):
-    print(CGREEN + "PLAYER:", name, "AVAILABLES TRIES:", vidas, CEND)
+    cant_guiones = 38 + len(name)
+    table = "-" * cant_guiones
+    print(" " + table)
+    print("|   " + CGREEN + "PLAYER:", name, "    AVAILABLES TRIES:", vidas, CEND, " |")
+    print(" " + table)
 
 # this function chose the word
 def new_palabra():
@@ -98,7 +102,7 @@ print("Enter your name")
 
 m: is the number of deaths
 b: is the flag to end the game
-e: is the flag to print a error message
+ex: is the flag to print a error message
 vx: is the position of draw
 palabra: is the word of the game
 arr: is a copy of palabra, this variable change when the player guess a letter
@@ -108,7 +112,7 @@ perdidas: this array contains the letters out of game
 name = input()
 m = 0
 b = 0
-e = 0
+e1 = 0
 e2 = 0
 v1 = v2 = v3 = v4 = v5 = v6 = v7 = " "
 palabra = new_palabra()
@@ -129,9 +133,9 @@ while(b != 1):
         print("  |   |   |")
         print("  V   V   V")
         print_arr(perdidas)
-    if e == 1:
+    if e1 == 1:
         print(CRED + "\nPlease, guess a single letter or the whole word\n" + CEND)
-        e = 0
+        e1 = 0
     if e2 == 1:
         print(CRED + "\nPlease, guess an unused letter\n" + CEND)
         e2 = 0
@@ -181,4 +185,4 @@ while(b != 1):
             else:
                 e2 = 1
         else:
-            e = 1
+            e1 = 1
