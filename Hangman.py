@@ -24,6 +24,8 @@ def print_boneco(v1, v2, v3, v4, v5, v6, v7):
 
 # this function prints score table and name of player
 def print_label(name, vidas):
+    if name == "":
+        name = "Guest"
     cant_guiones = 38 + len(name)
     table = "-" * cant_guiones
     print(" " + table)
@@ -91,6 +93,19 @@ def victory():
     print("***************************", end=time.sleep(0.6))
     print("***************************", end=time.sleep(0.6))
 
+def print_man():
+    print("At the beginning of the game you have 7 tries.")
+    print("\nTo play you simply have to insert a letter and press", end="")
+    print("enter\nIf the letter is in the word you will see it.")
+    print("\nIn case you fail an attempt will be discounted\nYou will ", end="")
+    print("be able to see a section with letters that the word does ", end="")
+    print("not have.\nIf you think you know the whole word, type it and ", end="")
+    print("hit enter, but be careful!!!\nIf you fail to put the whole word, ", end="")
+    print("you will lose the whole game")
+    print("\n\n\n\n\nThe manual will close automatically in a few seconds and the game will restart")
+    print("\n\n\n\t\t\t\tHave fun!")
+    print("\n\n\n\t\tMade by Facundo Diaz and Andres Rodriguez")
+
 # welcome message
 print("Welcome to Hangman game")
 print()
@@ -133,12 +148,15 @@ while(b != 1):
         print("  |   |   |")
         print("  V   V   V")
         print_arr(perdidas)
+    else:
+        print("\nIf you need help, type help and enter")
     if e1 == 1:
         print(CRED + "\nPlease, guess a single letter or the whole word\n" + CEND)
         e1 = 0
     if e2 == 1:
         print(CRED + "\nPlease, guess an unused letter\n" + CEND)
         e2 = 0
+    print()
     letra_elegida = input()
     if letra_elegida == palabra:
         victory()
@@ -153,6 +171,10 @@ while(b != 1):
         v7 = "_"
         defeat()
         b = 1
+    elif letra_elegida == "help":
+        os.system('clear')
+        print_man()
+        time.sleep(15)
     else:
         if len(letra_elegida) == 1 and (ord(letra_elegida) >= 97 and ord(letra_elegida) <= 122):
             if (letra_elegida not in perdidas) and (letra_elegida not in arr):
