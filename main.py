@@ -3,6 +3,11 @@
 import os
 import random
 
+""" COLOR VARIABLES """
+CRED = '\033[91m'
+CEND = '\033[0m'
+CGREEN  = '\33[32m'
+
 os.system('clear')
 def print_boneco(v1, v2, v3, v4, v5, v6, v7):
     print("     ____")
@@ -14,7 +19,7 @@ def print_boneco(v1, v2, v3, v4, v5, v6, v7):
     print("____|____")
 
 def print_label(name, vidas):
-    print("PLAYER:", name, "AVAILABLES TRIES:", vidas)
+    print(CGREEN + "PLAYER:", name, "AVAILABLES TRIES:", vidas, CEND)
 
 def new_palabra():
     word_list = ["car", "dog", "doll", "cat", "cellphone", "computer", "mouse", "house", "doctor", "kitchen",  "jumper",  "soccer",
@@ -34,6 +39,7 @@ def check_win(arr, palabra):
             return 0
     return 1
 def print_arr(arr):
+    print()
     for i in range(0, len(arr)):
         print(arr[i] + " ", end="")
     print()
@@ -42,6 +48,7 @@ print("Enter your name")
 name = input()
 m = 0
 b = 0
+e = 0
 v1 = v2 = v3 = v4 = v5 = v6 = v7 = " "
 palabra = new_palabra()
 arr = []
@@ -60,6 +67,9 @@ while(b != 1):
         print("  |   |   |")
         print("  V   V   V")
         print_arr(perdidas)
+    if e == 1:
+        print(CRED + "\nPlease, guess a single letter or the whole word\n" + CEND)
+        e = 0
     letra_elegida = input()
     if letra_elegida == palabra:
         os.system('clear')
@@ -112,7 +122,7 @@ while(b != 1):
                     print_boneco(v1, v2, v3, v4, v5, v6, v7)
                     print("\n\n*****************")
                     print("*****************")
-                    print("You lost the game")
+                    print(CRED + "You lost the game" + CEND)
                     print("*****************")
                     print("*****************")
                     b = 1
@@ -124,11 +134,11 @@ while(b != 1):
                     print_boneco(v1, v2, v3, v4, v5, v6, v7)
                     print("\n\n*************************")
                     print("*************************")
-                    print("Congrats you won the game")
+                    print(CGREEN + "Congrats you won the game" + CEND)
                     print("-------------------------")
-                    print("The word was", palabra)
+                    print(CGREEN + "** The word was", palabra, "**" + CEND)
                     print("*************************")
                     print("*************************")
                     b = 1
         else:
-            print("error")
+            e = 1
