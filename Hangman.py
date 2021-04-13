@@ -11,6 +11,8 @@ CGREEN  = '\33[32m'
 
 # Clean screen before start the game
 os.system('clear')
+
+# this function prints the man
 def print_boneco(v1, v2, v3, v4, v5, v6, v7):
     print("     ____")
     print("    |    |")
@@ -20,21 +22,25 @@ def print_boneco(v1, v2, v3, v4, v5, v6, v7):
     print("    |   "+v5,v6)
     print("____|____")
 
+# this function prints score table and name of player
 def print_label(name, vidas):
     print(CGREEN + "PLAYER:", name, "AVAILABLES TRIES:", vidas, CEND)
 
+# this function chose the word
 def new_palabra():
     word_list = ["car", "dog", "doll", "cat", "cellphone", "computer", "mouse", "house", "doctor", "kitchen",  "jumper",  "soccer",
                  "skill", "deparment", "scene", "wood", "awareness", "foundation", "disease", "classroom", "opinion", "sister", "ball",]
     word = random.choice(word_list)
     return(word)
 
+# this function checks if the letters match with word
 def chequear_existencia(letra_elegida, arr, palabra):
     for i in range(0,len(palabra)):
         if letra_elegida == palabra[i]:
             arr[i] = letra_elegida
     return arr
 
+# this function check if input word match with original word
 def check_win(arr, palabra):
     for i in range(0,len(palabra)):
         if arr[i] == palabra[i]:
@@ -43,11 +49,14 @@ def check_win(arr, palabra):
             return 0
     return 1
 
+# This function prints array more beautifully
 def print_arr(arr):
     print()
     for i in range(0, len(arr)):
         print(arr[i] + " ", end="")
     print()
+
+# this function prints de message when the player lost the game
 def deffeat():
     os.system('clear')
     print_boneco(v1, v2, v3, v4, v5, v6, v7)
@@ -62,6 +71,7 @@ def deffeat():
     print("*************************", end=time.sleep(0.6))
     print("*************************", end=time.sleep(0.6))
 
+# this function prints de message when the player won the game
 def victory():
     os.system('clear')
     print_boneco(v1, v2, v3, v4, v5, v6, v7)
@@ -77,11 +87,24 @@ def victory():
     print("***************************", end=time.sleep(0.6))
     print("***************************", end=time.sleep(0.6))
 
+# welcome message
 print("Welcome to Hangman game")
 print()
 time.sleep(1)
 print("Enter your name")
 
+#declaration all variables
+"""
+
+m: is the number of deaths
+b: is the flag to end the game
+e: is the flag to print a error message
+vx: is the position of draw
+palabra: is de word of the game
+arr: is a copy of palabra, this variable change when the player guess a letter
+perdidas: this array contains the letters out of game
+
+"""
 name = input()
 m = 0
 b = 0
@@ -91,6 +114,7 @@ palabra = new_palabra()
 arr = []
 perdidas = []
 
+# give initial values to the player word
 for i in range(0, len(palabra)):
     arr.append("_")
 
