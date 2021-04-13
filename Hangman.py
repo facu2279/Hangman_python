@@ -44,6 +44,8 @@ def print_boneco_green(v1, v2, v3, v4, v5, v6, v7):
 
 # this function prints score table and name of player
 def print_label(name, vidas):
+    if name == "exit" or name == "quit":
+        good_bye()
     if name == "":
         name = "Guest"
     cant_guiones = 38 + len(name)
@@ -90,6 +92,15 @@ def print_arr_v2(arr):
     print()
     print(CRED + table + CEND)
 
+def good_bye():
+    os.system('clear')
+    print("\n\n ---------------\n|\t\t|\n|   Good Bye    |\n", end="")
+    print("|               |\n", end="")
+    print(" ---------------\n\n", end="")
+    time.sleep(2)
+    os.system('clear')
+    exit()
+
 # this function prints de message when the player lost the game
 def defeat():
     os.system('clear')
@@ -130,6 +141,7 @@ def print_man():
     print("not have.\nIf you think you know the whole word, type it and ", end="")
     print("hit enter, but be careful!!!\nIf you fail to put the whole word, ", end="")
     print("you will lose the whole game")
+    print("To end the game, type quit or exit")
     print("\n\n\n\n\nThe manual will close automatically in a few seconds and the game will restart")
     print("\n\n\n\t\t\t\tHave fun!")
     print("\n\n\n\t\tMade by Facundo Diaz and Andres Rodriguez")
@@ -204,6 +216,9 @@ while(b != 1):
         os.system('clear')
         print_man()
         time.sleep(15)
+    elif letra_elegida == "exit" or letra_elegida == "quit":
+        good_bye()
+        break
     else:
         if len(letra_elegida) == 1 and (ord(letra_elegida) >= 97 and ord(letra_elegida) <= 122):
             if (letra_elegida not in perdidas) and (letra_elegida not in arr):
