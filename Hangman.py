@@ -204,7 +204,14 @@ while(b != 1):
         e2 = 0
     print()
     letra_elegida = input()
-    if letra_elegida == palabra:
+    if letra_elegida == "help":
+        os.system('clear')
+        print_man()
+        time.sleep(15)
+    elif letra_elegida == "exit" or letra_elegida == "quit":
+        good_bye()
+        break
+    elif letra_elegida == palabra:
         victory()
         b = 1
     elif len(letra_elegida) == len(palabra):
@@ -217,13 +224,6 @@ while(b != 1):
         v7 = "_"
         defeat()
         b = 1
-    elif letra_elegida == "help":
-        os.system('clear')
-        print_man()
-        time.sleep(15)
-    elif letra_elegida == "exit" or letra_elegida == "quit":
-        good_bye()
-        break
     else:
         if len(letra_elegida) == 1 and (ord(letra_elegida) >= 97 and ord(letra_elegida) <= 122):
             if (letra_elegida not in perdidas) and (letra_elegida not in arr):
