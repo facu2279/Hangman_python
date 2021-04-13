@@ -61,46 +61,74 @@ while(b != 1):
         print("  V   V   V")
         print_arr(perdidas)
     letra_elegida = input()
-    if len(letra_elegida) == 1 and (ord(letra_elegida) >= 97 and ord(letra_elegida) <= 122):
-        prov = arr.copy()
-        arr = chequear_existencia(letra_elegida, arr, palabra)
-        if arr == prov:
-            m = m + 1
-            if m == 1:
-                v1 = "O"
-            if m == 2:
-                v2 = "/"
-            if m == 3:
-                v3 = chr(92)
-            if m == 4:
-                v4 = "|"
-            if m == 5:
-                v5 = "/"
-            if m == 6:
-                v6 = chr(92)
-            if (m == 7):
-                v7 = "_"
-                os.system('clear')
-                print_boneco(v1, v2, v3, v4, v5, v6, v7)
-                print("\n\n*****************")
-                print("*****************")
-                print("You lost the game")
-                print("*****************")
-                print("*****************")
-                b = 1
-            else:
-                perdidas.append(letra_elegida)
-        else:
-            if check_win(arr, palabra):
-                os.system('clear')
-                print_boneco(v1, v2, v3, v4, v5, v6, v7)
-                print("\n\n*************************")
-                print("*************************")
-                print("Congrats you won the game")
-                print("-------------------------")
-                print("The word was", palabra)
-                print("*************************")
-                print("*************************")
-                b = 1
+    if letra_elegida == palabra:
+        os.system('clear')
+        print_boneco(v1, v2, v3, v4, v5, v6, v7)
+        print("\n\n*************************")
+        print("*************************")
+        print("Congrats you won the game")
+        print("-------------------------")
+        print("The word was", palabra)
+        print("*************************")
+        print("*************************")
+        b = 1
+    elif len(letra_elegida) == len(palabra):
+        v1 = "O"
+        v2 = "/"
+        v3 = chr(92)
+        v4 = "|"
+        v5 = "/"
+        v6 = chr(92)
+        v7 = "_"
+        os.system('clear')
+        print_boneco(v1, v2, v3, v4, v5, v6, v7)
+        print("\n\n*****************")
+        print("*****************")
+        print("You lost the game")
+        print("*****************")
+        print("*****************")
+        b = 1
     else:
-        print("error")
+        if len(letra_elegida) == 1 and (ord(letra_elegida) >= 97 and ord(letra_elegida) <= 122):
+            prov = arr.copy()
+            arr = chequear_existencia(letra_elegida, arr, palabra)
+            if arr == prov:
+                m = m + 1
+                if m == 1:
+                    v1 = "O"
+                if m == 2:
+                    v2 = "/"
+                if m == 3:
+                    v3 = chr(92)
+                if m == 4:
+                    v4 = "|"
+                if m == 5:
+                    v5 = "/"
+                if m == 6:
+                    v6 = chr(92)
+                if (m == 7):
+                    v7 = "_"
+                    os.system('clear')
+                    print_boneco(v1, v2, v3, v4, v5, v6, v7)
+                    print("\n\n*****************")
+                    print("*****************")
+                    print("You lost the game")
+                    print("*****************")
+                    print("*****************")
+                    b = 1
+                else:
+                    perdidas.append(letra_elegida)
+            else:
+                if check_win(arr, palabra):
+                    os.system('clear')
+                    print_boneco(v1, v2, v3, v4, v5, v6, v7)
+                    print("\n\n*************************")
+                    print("*************************")
+                    print("Congrats you won the game")
+                    print("-------------------------")
+                    print("The word was", palabra)
+                    print("*************************")
+                    print("*************************")
+                    b = 1
+        else:
+            print("error")
