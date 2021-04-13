@@ -27,12 +27,17 @@ There are two ways to win, guess the word, letter by letter or insert the whole 
 <br>
 <p align="center"><img src="https://github.com/facu2279/Hangman_python/blob/main/example1.png"/></p>
 <br>
+<br>
+
 There are also two ways to lose, that you run out of attempts when inserting letter by letter, or that when you inserted the whole word, it was incorrect, in both cases the poster that the terminal will display is the following:
 <p align="center"><img src="https://github.com/facu2279/Hangman_python/blob/main/example2.png"/></p>
 <br>
+<br>
 The game expects you to enter a letter or the correct word, in case of entering an invalid character or a word of greater length, the message that the terminal will display will be this:
 <br>
+<br>
 <p align="center"><img src="https://github.com/facu2279/Hangman_python/blob/main/error.png"/></p>
+<br>
 <br>
 
 ## Authors
