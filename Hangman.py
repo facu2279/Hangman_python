@@ -60,7 +60,7 @@ def print_label(name, vidas):
 # this function chose the word
 def new_palabra():
     word_list = ["car", "dog", "doll", "cat", "cellphone", "computer", "mouse", "house", "doctor", "kitchen",  "jumper",  "soccer",
-                 "skill", "deparment", "scene", "wood", "awareness", "foundation", "disease", "classroom", "opinion", "sister", "ball",
+                 "skill", "department", "scene", "wood", "awareness", "foundation", "disease", "classroom", "opinion", "sister", "ball",
                  "rain", "book", "pencil", "robot", "coffe", "cupcake", "shirt", "charger", "unfortunate",
                  "dirty", "tail", "guess", "mother", "father", "paper", "bind", "rugby", "notice", "effect"]
     word = random.choice(word_list)
