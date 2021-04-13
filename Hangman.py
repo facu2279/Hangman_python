@@ -57,7 +57,7 @@ def print_arr(arr):
     print()
 
 # this function prints de message when the player lost the game
-def deffeat():
+def defeat():
     os.system('clear')
     print_boneco(v1, v2, v3, v4, v5, v6, v7)
     print("\n\n*************************", end=time.sleep(0.6))
@@ -109,6 +109,7 @@ name = input()
 m = 0
 b = 0
 e = 0
+e2 = 0
 v1 = v2 = v3 = v4 = v5 = v6 = v7 = " "
 palabra = new_palabra()
 arr = []
@@ -124,13 +125,16 @@ while(b != 1):
     print_boneco(v1, v2, v3, v4, v5, v6, v7)
     print_arr(arr)
     if m != 0:
-        print("\n\n LETTERS OUT OF GAME")
+        print("\n\n WRONG LETTERS")
         print("  |   |   |")
         print("  V   V   V")
         print_arr(perdidas)
     if e == 1:
         print(CRED + "\nPlease, guess a single letter or the whole word\n" + CEND)
         e = 0
+    if e2 == 1:
+        print(CRED + "\nPlease, guess an unused letter\n" + CEND)
+        e2 = 0
     letra_elegida = input()
     if letra_elegida == palabra:
         victory()
@@ -143,35 +147,38 @@ while(b != 1):
         v5 = "/"
         v6 = chr(92)
         v7 = "_"
-        deffeat()
+        defeat()
         b = 1
     else:
         if len(letra_elegida) == 1 and (ord(letra_elegida) >= 97 and ord(letra_elegida) <= 122):
-            prov = arr.copy()
-            arr = chequear_existencia(letra_elegida, arr, palabra)
-            if arr == prov:
-                m = m + 1
-                if m == 1:
-                    v1 = "O"
-                if m == 2:
-                    v2 = "/"
-                if m == 3:
-                    v3 = chr(92)
-                if m == 4:
-                    v4 = "|"
-                if m == 5:
-                    v5 = "/"
-                if m == 6:
-                    v6 = chr(92)
-                if (m == 7):
-                    v7 = "_"
-                    deffeat()
-                    b = 1
+            if (letra_elegida not in perdidas) and (letra_elegida not in arr):
+                prov = arr.copy()
+                arr = chequear_existencia(letra_elegida, arr, palabra)
+                if arr == prov:
+                    m = m + 1
+                    if m == 1:
+                        v1 = "O"
+                    if m == 2:
+                        v2 = "/"
+                    if m == 3:
+                        v3 = chr(92)
+                    if m == 4:
+                        v4 = "|"
+                    if m == 5:
+                        v5 = "/"
+                    if m == 6:
+                        v6 = chr(92)
+                    if (m == 7):
+                        v7 = "_"
+                        defeat()
+                        b = 1
+                    else:
+                        perdidas.append(letra_elegida)
                 else:
-                    perdidas.append(letra_elegida)
+                    if check_win(arr, palabra):
+                        victory()
+                        b = 1
             else:
-                if check_win(arr, palabra):
-                    victory()
-                    b = 1
+                e2 = 1
         else:
             e = 1
