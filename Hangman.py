@@ -8,6 +8,9 @@ import time
 CRED = '\033[91m'
 CEND = '\033[0m'
 CGREEN  = '\33[32m'
+CYELLOW = '\033[33m'
+CCYAN = '\033[36m'
+CVAR = CGREEN
 
 # Clean screen before start the game
 os.system('clear')
@@ -51,7 +54,7 @@ def print_label(name, vidas):
     cant_guiones = 38 + len(name)
     table = "-" * cant_guiones
     print(" " + table)
-    print("|   " + CGREEN + "PLAYER:", name, "    AVAILABLES TRIES:", vidas, CEND, " |")
+    print("|   " "PLAYER:"+ CYELLOW, name, CEND + CVAR + "    AVAILABLES TRIES:", vidas, "<3" + CEND, " |")
     print(" " + table)
 
 # this function chose the word
@@ -138,11 +141,11 @@ def print_man():
     print("At the beginning of the game you have 7 tries.")
     print("\nTo play you simply have to insert a letter and press", end="")
     print("enter\nIf the letter is in the word you will see it.")
-    print("\nIn case you fail an attempt will be discounted\nYou will ", end="")
+    print("\nIn case the letter is wrong an attempt will be discounted\nYou will ", end="")
     print("be able to see a section with letters that the word does ", end="")
     print("not have.\nIf you think you know the whole word, type it and ", end="")
-    print("hit enter, but be careful!!!\nIf you fail to put the whole word, ", end="")
-    print("you will lose the whole game")
+    print("hit enter, but be careful!!!\nIf you don't guess the correct word, ", end="")
+    print("you will lose the game instantly")
     print("To end the game, type quit or exit")
     print("\n\n\n\n\nThe manual will close automatically in a few seconds and the game will restart")
     print("\n\n\n\t\t\t\tHave fun!")
@@ -232,14 +235,17 @@ while(b != 1):
                         v1 = "O"
                     if m == 2:
                         v2 = "/"
+                        CVAR = CCYAN
                     if m == 3:
                         v3 = chr(92)
                     if m == 4:
                         v4 = "|"
+                        CVAR = CYELLOW
                     if m == 5:
                         v5 = "/"
                     if m == 6:
                         v6 = chr(92)
+                        CVAR = CRED
                     if (m == 7):
                         v7 = "_"
                         defeat()
