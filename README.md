@@ -1,5 +1,5 @@
 # Hangman_python
-<p align="center"><img src="https://github.com/facu2279/Hangman_python/blob/main/xd.jpg"/></p>
+<p align="center"><img src="https://github.com/facu2279/Hangman_python/blob/main/img/xd.jpg"/></p>
 
 ## General
 Everyone knows the game, no description needed.
@@ -26,14 +26,14 @@ In case you find a bug, let us know so we can solve it :)
 There are two ways to win, guess the word, letter by letter or insert the whole word, in both cases the poster that the terminal will display is the following:
 <br>
 <br>
-<p align="center"><img src="https://github.com/facu2279/Hangman_python/blob/main/example1.png"/></p>
+<p align="center"><img src="https://github.com/facu2279/Hangman_python/blob/main/img/example1.png"/></p>
 <br>
 <br>
 <br>
 There are also two ways to lose, that you run out of attempts when inserting letter by letter, or that when you inserted the whole word, it was incorrect, in both cases the poster that the terminal will display is the following:
 <br>
 <br>
-<p align="center"><img src="https://github.com/facu2279/Hangman_python/blob/main/example2.png"/></p>
+<p align="center"><img src="https://github.com/facu2279/Hangman_python/blob/main/img/example2.png"/></p>
 <br>
 <br>
 <br>
@@ -42,7 +42,7 @@ The game expects you to enter a letter or the correct word, in case of entering 
 <br>
 <br>
 <br>
-<p align="center"><img src="https://github.com/facu2279/Hangman_python/blob/main/error.png"/></p>
+<p align="center"><img src="https://github.com/facu2279/Hangman_python/blob/main/img/error.png"/></p>
 <br>
 <br>
 <br>
