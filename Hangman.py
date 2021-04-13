@@ -100,7 +100,7 @@ m: is the number of deaths
 b: is the flag to end the game
 e: is the flag to print a error message
 vx: is the position of draw
-palabra: is de word of the game
+palabra: is the word of the game
 arr: is a copy of palabra, this variable change when the player guess a letter
 perdidas: this array contains the letters out of game
 
