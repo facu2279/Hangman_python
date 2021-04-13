@@ -2,6 +2,7 @@
 """ Hangman game made by Facundo Diaz and Andres Rodriguez """
 import os
 import random
+import time
 
 """ COLOR VARIABLES """
 CRED = '\033[91m'
@@ -43,7 +44,9 @@ def print_arr(arr):
     for i in range(0, len(arr)):
         print(arr[i] + " ", end="")
     print()
-
+print("Welcome to Hangman game")
+print()
+time.sleep(1)
 print("Enter your name")
 name = input()
 m = 0
@@ -75,12 +78,19 @@ while(b != 1):
         os.system('clear')
         print_boneco(v1, v2, v3, v4, v5, v6, v7)
         print("\n\n*************************")
+        time.sleep(0.3)
         print("*************************")
-        print("Congrats you won the game")
+        time.sleep(0.3)
+        print(CGREEN + "Congrats you won the game" + CEND)
+        time.sleep(0.3)
         print("-------------------------")
-        print("The word was", palabra)
+        time.sleep(0.3)
+        print(CGREEN + "** The word was", palabra, "**" + CEND)
+        time.sleep(0.3)
         print("*************************")
+        time.sleep(0.3)
         print("*************************")
+        time.sleep(0.3)
         b = 1
     elif len(letra_elegida) == len(palabra):
         v1 = "O"
@@ -133,12 +143,19 @@ while(b != 1):
                     os.system('clear')
                     print_boneco(v1, v2, v3, v4, v5, v6, v7)
                     print("\n\n*************************")
+                    time.sleep(0.3)
                     print("*************************")
+                    time.sleep(0.3)
                     print(CGREEN + "Congrats you won the game" + CEND)
+                    time.sleep(0.3)
                     print("-------------------------")
+                    time.sleep(0.3)
                     print(CGREEN + "** The word was", palabra, "**" + CEND)
+                    time.sleep(0.3)
                     print("*************************")
+                    time.sleep(0.3)
                     print("*************************")
+                    time.sleep(0.3)
                     b = 1
         else:
             e = 1
