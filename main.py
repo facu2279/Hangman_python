@@ -12,7 +12,7 @@ def print_boneco(v1, v2, v3, v4, v5, v6, v7):
     print("____|____")
 
 def print_label(name, vidas):
-    print("PLAYER: ", name, "VIDAS DISPONIBLES: ", vidas)
+    print("PLAYER:", name, "VIDAS DISPONIBLES:", vidas)
 
 def new_palabra():
     palabra = "auto"
@@ -59,7 +59,22 @@ while(b != 1):
         arr = chequear_existencia(letra_elegida, arr, palabra)
         if arr == prov:
             m = m + 1
+            if m == 1:
+                v1 = "O"
+            if m == 2:
+                v2 = "/"
+            if m == 3:
+                v3 = chr(92)
+            if m == 4:
+                v4 = "|"
+            if m == 5:
+                v5 = "/"
+            if m == 6:
+                v6 = chr(92)
             if (m == 7):
+                v7 = "_"
+                os.system('clear')
+                print_boneco(v1, v2, v3, v4, v5, v6, v7)
                 print("*****************")
                 print("*****************")
                 print("Yoy lost the game")
